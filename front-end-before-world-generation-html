@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personalization Questions - AI Simulation (4 Questions)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a60df2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#1c1022",
+                    },
+                    fontFamily: {
+                        "display": ["Times New Roman", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3c2249; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #563168; }
+        .glow-text { text-shadow: 0 0 30px rgba(166, 13, 242, 0.4); }
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display h-screen flex flex-col overflow-hidden selection:bg-primary/30 selection:text-white relative">
+<div class="absolute inset-0 pointer-events-none z-0" style="background: radial-gradient(circle at 50% 0%, rgba(166, 13, 242, 0.15) 0%, transparent 60%), radial-gradient(circle at 10% 90%, rgba(50, 20, 70, 0.4) 0%, transparent 50%);"></div>
+<!-- Progress Bar (Top) - width updated by JS for 4 steps -->
+<div class="relative w-full h-[2px] bg-white/5 z-20">
+<div id="progressBarFill" class="absolute top-0 left-0 h-full bg-primary shadow-[0_0_15px_#a60df2] transition-all duration-1000 ease-out" style="width: 25%;"></div>
+</div>
+<div class="layout-container flex h-full grow flex-col z-10">
+<header class="w-full px-6 py-4 flex justify-between items-center opacity-80 border-b border-white/5 bg-background-dark/50 backdrop-blur-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">Simulation Protocol</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono text-white/40">ID: 884-AX</span>
+<div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+</div>
+</header>
+<!-- Chat Area: intro + Q1 are static; user + AI messages appended here -->
+<div id="chatArea" class="flex-1 overflow-y-auto w-full max-w-[960px] mx-auto px-4 sm:px-8 py-8 flex flex-col justify-start gap-10">
+<div class="flex gap-4 opacity-50 transition-opacity hover:opacity-70 group">
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#2a1735] border border-white/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-white/60">smart_toy</span>
+</div>
+<div class="w-[1px] h-full bg-white/5 group-hover:bg-white/10"></div>
+</div>
+<div class="flex flex-col gap-1 pb-4">
+<p class="text-white/60 text-xs font-bold uppercase tracking-wide">System</p>
+<p class="text-white/80 text-base font-light leading-relaxed">Welcome to the simulation. Before we begin, define your influence.</p>
+</div>
+</div>
+<!-- Current question block (Q1 text + label updated by JS for Q2–Q4) -->
+<div id="currentQuestionBlock" class="flex gap-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(166,13,242,0.2)]">
+<span class="material-symbols-outlined text-lg text-primary">psychology</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 pt-1">
+<div class="flex items-center gap-2">
+<p class="text-primary text-xs font-bold uppercase tracking-wide">System</p>
+<span class="w-1 h-1 rounded-full bg-primary/50"></span>
+<p id="questionLabel" class="text-white/40 text-xs uppercase tracking-wide">Question 1 of 4</p>
+</div>
+<div class="flex flex-col gap-2">
+<p id="questionText" class="text-white text-2xl md:text-3xl font-light leading-snug glow-text">
+Do you seek to bring <span class="font-medium text-white border-b border-white/20 pb-0.5">order</span> to this world, or <span class="font-medium text-white border-b border-white/20 pb-0.5">disruption</span>?
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Zone -->
+<div id="inputZone" class="w-full max-w-[960px] mx-auto px-4 sm:px-8 pb-10 pt-4">
+<div class="flex flex-wrap gap-3 mb-6 pl-[56px]">
+<button type="button" data-chip="Chaos" class="chip-btn flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#3c2249] hover:bg-primary border border-transparent hover:border-primary/50 pl-4 pr-4 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-base text-primary group-hover:text-white transition-colors">storm</span>
+<p class="text-white/90 text-sm font-medium leading-normal group-hover:text-white">Chaos</p>
+</button>
+<button type="button" data-chip="Harmony" class="chip-btn flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#3c2249] hover:bg-primary border border-transparent hover:border-primary/50 pl-4 pr-4 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-base text-primary group-hover:text-white transition-colors">balance</span>
+<p class="text-white/90 text-sm font-medium leading-normal group-hover:text-white">Harmony</p>
+</button>
+<button type="button" data-chip="Mystery" class="chip-btn flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#3c2249] hover:bg-primary border border-transparent hover:border-primary/50 pl-4 pr-4 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-base text-primary group-hover:text-white transition-colors">visibility_off</span>
+<p class="text-white/90 text-sm font-medium leading-normal group-hover:text-white">Mystery</p>
+</button>
+<button type="button" data-chip="Structure" class="chip-btn flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#3c2249] hover:bg-primary border border-transparent hover:border-primary/50 pl-4 pr-4 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-base text-primary group-hover:text-white transition-colors">grid_view</span>
+<p class="text-white/90 text-sm font-medium leading-normal group-hover:text-white">Structure</p>
+</button>
+</div>
+<div class="relative flex items-center gap-3 pl-[12px]">
+<span class="material-symbols-outlined text-primary animate-pulse text-2xl">chevron_right</span>
+<div class="flex-1 group/input relative">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-purple-600/20 rounded-xl opacity-0 group-focus-within/input:opacity-100 transition duration-500 blur-md"></div>
+<div class="relative flex w-full flex-1 items-stretch rounded-xl h-14 bg-[#2a1735]/80 backdrop-blur border border-white/10 group-focus-within/input:border-primary/50 overflow-hidden transition-colors">
+<input id="inputField" autofocus class="form-input flex w-full min-w-0 flex-1 resize-none bg-transparent border-none focus:ring-0 text-white placeholder:text-white/20 px-4 text-lg font-light leading-normal h-full" placeholder="Type your intent..." value=""/>
+<div class="flex items-center justify-center pr-2 bg-transparent">
+<button type="button" id="sendBtn" class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/20 hover:bg-primary text-primary hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-xl">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pl-[56px] mt-3 flex justify-between items-center text-[10px] text-white/30 font-mono uppercase tracking-wider">
+<span id="statusText">Waiting for user input...</span>
+<span id="latencyText">—</span>
+</div>
+</div>
+</div>
+
+<script>
+(function () {
+  // Use same origin when page is served from the API (e.g. http://127.0.0.1:5001/)
+  const API_BASE = (typeof window !== 'undefined' && window.location && window.location.origin)
+    ? window.location.origin
+    : 'http://localhost:5001';
+  const chatArea = document.getElementById('chatArea');
+  const currentQuestionBlock = document.getElementById('currentQuestionBlock');
+  const questionLabel = document.getElementById('questionLabel');
+  const questionText = document.getElementById('questionText');
+  const inputField = document.getElementById('inputField');
+  const sendBtn = document.getElementById('sendBtn');
+  const progressBarFill = document.getElementById('progressBarFill');
+  const statusText = document.getElementById('statusText');
+  const latencyText = document.getElementById('latencyText');
+  const inputZone = document.getElementById('inputZone');
+
+  let currentQuestionIndex = 1;
+  let answers = [];
+
+  function escapeHtml(s) {
+    const div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function appendUserMessage(text) {
+    const block = document.createElement('div');
+    block.className = 'flex gap-4';
+    block.innerHTML =
+      '<div class="flex flex-col items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-sm text-primary">person</span></div></div>' +
+      '<div class="flex flex-col gap-1 pb-4"><p class="text-primary/80 text-xs font-bold uppercase tracking-wide">You</p><p class="text-white/90 text-base font-light leading-relaxed">' + escapeHtml(text) + '</p></div>';
+    chatArea.insertBefore(block, currentQuestionBlock);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function appendSystemResponse(responseText) {
+    const block = document.createElement('div');
+    block.className = 'flex gap-4 opacity-90';
+    block.innerHTML =
+      '<div class="flex flex-col items-center gap-2"><div class="w-8 h-8 rounded-lg bg-[#2a1735] border border-white/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-sm text-white/60">smart_toy</span></div></div>' +
+      '<div class="flex flex-col gap-1 pb-4"><p class="text-white/60 text-xs font-bold uppercase tracking-wide">System</p><p class="text-white/80 text-base font-light leading-relaxed">' + escapeHtml(responseText) + '</p></div>';
+    chatArea.insertBefore(block, currentQuestionBlock);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function setNextQuestion(text) {
+    questionText.innerHTML = escapeHtml(text);
+    questionLabel.textContent = 'Question ' + (currentQuestionIndex + 1) + ' of 4';
+    progressBarFill.style.width = (25 * (currentQuestionIndex + 1)) + '%';
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function finishFlow() {
+    progressBarFill.style.width = '100%';
+    questionLabel.textContent = 'Complete';
+    questionText.textContent = 'Thank you for defining your influence. The simulation has what it needs.';
+    inputField.disabled = true;
+    inputField.placeholder = 'Session complete';
+    sendBtn.disabled = true;
+    sendBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    statusText.textContent = 'Session complete.';
+    inputZone.querySelectorAll('.chip-btn').forEach(function (btn) { btn.disabled = true; });
+  }
+
+  function submitAnswer() {
+    const raw = (inputField.value || '').trim();
+    if (!raw) return;
+    if (currentQuestionIndex > 4) return;
+
+    const answer = raw;
+    answers.push(answer);
+    appendUserMessage(answer);
+    inputField.value = '';
+    statusText.textContent = 'Thinking...';
+    sendBtn.disabled = true;
+    const t0 = performance.now();
+
+    fetch(API_BASE + '/next_question', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question_index: currentQuestionIndex, answers: answers })
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        const latency = Math.round(performance.now() - t0);
+        latencyText.textContent = latency + 'ms';
+
+        if (data.response) appendSystemResponse(data.response);
+        if (data.is_complete) {
+          finishFlow();
+          return;
+        }
+        if (data.next_question) {
+          currentQuestionIndex += 1;
+          setNextQuestion(data.next_question);
+        }
+        statusText.textContent = 'Waiting for user input...';
+        sendBtn.disabled = false;
+        inputField.focus();
+      })
+      .catch(function (err) {
+        latencyText.textContent = '—';
+        statusText.textContent = 'Error: ' + (err.message || 'Could not reach server.');
+        appendSystemResponse('Could not get next question. Is the API running at ' + API_BASE + '?');
+        sendBtn.disabled = false;
+        answers.pop();
+      });
+  }
+
+  sendBtn.addEventListener('click', submitAnswer);
+  inputField.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      submitAnswer();
+    }
+  });
+
+  document.querySelectorAll('.chip-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const value = this.getAttribute('data-chip') || '';
+      inputField.value = value;
+      inputField.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
