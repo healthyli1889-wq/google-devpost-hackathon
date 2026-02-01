@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Workshop: Dynamic Generation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#F97316","primary-dark": "#c2410c",
+                        "background-light": "#1e293b",
+                        "background-dark": "#10172A","glass": "rgba(16, 23, 42, 0.7)",
+                    },
+                    fontFamily: {
+                        "serif": ["Playfair Display", "serif"],
+                        "mono": ["Space Mono", "monospace"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'spin-reverse-slow': 'spin 25s linear infinite reverse',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #F97316' },
+                            '100%': { boxShadow: '0 0 20px #F97316, 0 0 10px #F97316' }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+    display: none
+    }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+    }.typing-cursor::after {
+    content: "_";
+    animation: blink 1s step-end infinite
+    }
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+        } 50% {
+        opacity: 0;
+        }
+    }.film-grain {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCJhupxW7peI2feFaHjAGoP6AXe2u-7D0eprRi-y3Ed6-q7vdtbvvo1aWMgHaViS_HHXhjLwp7yce-wlG1WH71bRXjXU66TuPOpWH5T5jk-2dcbv66DJtdV5gHPucx59BTnkxEE_nf4hHDLiBQCapDa3HUuKc362d5nZFmfzI8rjT6IqrrEnRzhUZQG_No8NPIEqCr-W8rv0aKCI8gQvlDbLu4cz9_i7RsvIma-BC54rEnl_loqiJn5hYaS3xdyFgIR9GGzwahrIhk);
+    pointer-events: none
+    }.console-input:focus {
+    box-shadow: none;
+    outline: none
+    }</style>
+</head>
+<body class="bg-background-dark text-slate-200 font-mono overflow-hidden h-screen w-full flex flex-col selection:bg-primary selection:text-white">
+<div class="fixed inset-0 film-grain z-50 pointer-events-none opacity-40 mix-blend-overlay"></div>
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+<header class="flex items-center justify-between border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-10 py-5 z-40 fixed top-0 w-full">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary flex items-center justify-center border border-primary/30 rounded-full bg-primary/5 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+<h2 class="text-primary/90 text-2xl font-serif font-bold tracking-wide">The Workshop</h2>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-8 font-serif">
+<a class="text-white/50 hover:text-primary text-sm font-medium transition-colors italic" href="#">Archives</a>
+<a class="text-primary text-sm font-bold border-b border-primary pb-0.5 tracking-wide" href="#">Genesis</a>
+<a class="text-white/50 hover:text-primary text-sm font-medium transition-colors italic" href="#">Manual</a>
+</nav>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-primary/30 grayscale hover:grayscale-0 transition-all duration-500 shadow-[0_0_10px_rgba(249,115,22,0.3)]" data-alt="User profile avatar showing abstract digital art" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtfX6uc8wmq5wTK98TcU_7S0xYj-f_FZXyfKlq7QrC9UpyX1lCr3o4WkQA80QO5eFblvtYa5qSOPlDe8yNY8NC3PSZY6nD9Zsx5A-kZ_iHIYRHShN5Zvr8c3XcIYvTpgQ64vW45MRLebetIlJvBtVtXpY-f_zMiM7Fpgw2AucaeUvkopP0aWcFwyoBkrhFbLSP05Nz5h4vWNdp_W0wvcaoSyrqIaLkY6s8TbG8dTLY_HUH2T9u1sq3ZXtoH4sBHh8sFScsPNK-l4w");'></div>
+</div>
+</header>
+<main class="relative flex flex-1 items-center justify-center p-6 mt-20 z-10 w-full max-w-[1600px] mx-auto">
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 h-full max-h-[800px] items-center px-4 lg:px-12">
+<div class="hidden lg:flex lg:col-span-3 flex-col h-full justify-center gap-4 animate-float" style="animation-delay: 0.5s;">
+<div class="border-l-2 border-primary pl-4 py-2 relative">
+<div class="absolute -left-[5px] top-0 w-2 h-2 bg-primary rounded-full"></div>
+<h3 class="text-primary/60 text-[10px] font-mono uppercase tracking-widest mb-1">Sector 01</h3>
+<h2 class="text-3xl font-serif font-medium text-white tracking-wide">World Physics</h2>
+</div>
+<div class="bg-background-dark/40 backdrop-blur-sm border border-primary/20 rounded-lg p-5 h-[350px] overflow-hidden relative shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+<div class="absolute top-0 right-0 p-2 opacity-30">
+<span class="material-symbols-outlined text-primary">grid_4x4</span>
+</div>
+<div class="flex flex-col gap-4 font-mono text-xs text-white/70 pt-8 leading-relaxed">
+<div class="flex gap-2 border-b border-white/5 pb-2">
+<span class="text-primary">&gt;</span>
+<span>Initializing topographical mesh...</span>
+</div>
+<div class="flex gap-2 border-b border-white/5 pb-2">
+<span class="text-primary">&gt;</span>
+<span>Gravity constant: 9.81 m/s²</span>
+</div>
+<div class="flex gap-2 border-b border-white/5 pb-2">
+<span class="text-primary">&gt;</span>
+<span>Render distance: <span class="text-primary">UNBOUNDED</span></span>
+</div>
+<div class="flex gap-2 border-b border-white/5 pb-2">
+<span class="text-primary">&gt;</span>
+<span>Synthesizing fluid dynamics...</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary animate-pulse">&gt;&gt;</span>
+<span class="text-primary typing-cursor">Generating biomes...</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 flex gap-1">
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="col-span-1 lg:col-span-6 flex flex-col items-center justify-center relative">
+<div class="absolute top-0 lg:-top-8 flex items-center justify-center">
+<div class="flex items-center gap-3 px-6 py-2 bg-background-dark border border-primary/30 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.15)]">
+<span class="material-symbols-outlined text-primary text-[16px] animate-pulse">radio_button_checked</span>
+<span class="text-primary/90 font-mono text-xs tracking-[0.2em] uppercase">Phase 2: World Generation</span>
+</div>
+</div>
+<div class="relative size-[350px] md:size-[450px] flex items-center justify-center my-6">
+<svg class="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 100 100">
+<circle class="opacity-60 drop-shadow-[0_0_2px_#F97316]" cx="50" cy="50" fill="none" r="48" stroke="#F97316" stroke-dasharray="0.5 3" stroke-linecap="round" stroke-width="0.5"></circle>
+<circle class="opacity-30" cx="50" cy="50" fill="none" r="42" stroke="#F97316" stroke-dasharray="10 10" stroke-width="0.2"></circle>
+</svg>
+<svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow" viewBox="0 0 100 100">
+<circle class="opacity-40" cx="50" cy="50" fill="none" r="36" stroke="#F97316" stroke-dasharray="2 4" stroke-width="0.3"></circle>
+<circle class="animate-pulse shadow-[0_0_10px_#F97316]" cx="50" cy="14" fill="#F97316" r="1.5"></circle>
+<circle class="animate-pulse shadow-[0_0_10px_#F97316]" cx="50" cy="86" fill="#F97316" r="1.5"></circle>
+</svg>
+<div class="absolute inset-0 bg-radial-gradient from-primary/20 via-transparent to-transparent opacity-50 animate-pulse-slow"></div>
+<div class="relative size-56 bg-background-dark rounded-full flex flex-col items-center justify-center border border-primary/20 shadow-[0_0_60px_rgba(249,115,22,0.15)] z-10 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent h-full w-full animate-float opacity-30"></div>
+<h1 class="text-7xl font-serif font-bold text-white tracking-tighter tabular-nums drop-shadow-[0_0_15px_rgba(249,115,22,0.8)] z-20">78<span class="text-3xl align-top text-primary">%</span></h1>
+<p class="text-primary/70 text-[10px] font-mono mt-2 tracking-[0.3em] uppercase z-20 border-t border-primary/30 pt-2 px-4">Stabilizing</p>
+</div>
+</div>
+<div class="text-center space-y-2 max-w-md mx-auto mb-6">
+<h2 class="text-3xl md:text-4xl font-serif text-white tracking-tight">Synthesizing Reality</h2>
+<div class="flex items-center justify-center gap-3 text-primary/60 text-xs font-mono">
+<span>ID: #882-ALPHA</span>
+<span>•</span>
+<span>EST: 12S</span>
+</div>
+</div>
+<div class="w-full max-w-lg mt-4 relative group z-30">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 rounded-lg blur opacity-50 group-hover:opacity-80 transition duration-700"></div>
+<div class="relative flex items-center bg-background-dark/90 backdrop-blur-xl border border-primary/30 rounded-lg overflow-hidden p-3 shadow-2xl">
+<span class="material-symbols-outlined text-primary ml-1 mr-3 text-xl">terminal</span>
+<input class="console-input w-full bg-transparent border-none p-0 text-white font-mono text-sm placeholder-white/20 focus:ring-0" placeholder="&gt; Inject Thoughts or Alter Physics..." type="text"/>
+<button class="text-primary/60 hover:text-primary transition-colors px-2">
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<div class="flex justify-between w-full px-2 mt-2">
+<span class="text-[9px] text-primary/40 uppercase tracking-wider font-mono">Input Active</span>
+<span class="text-[9px] text-primary/40 uppercase tracking-wider font-mono">System Ready</span>
+</div>
+</div>
+</div>
+<div class="hidden lg:flex lg:col-span-3 flex-col h-full justify-center gap-4 animate-float text-right" style="animation-delay: 1.2s;">
+<div class="border-r-2 border-primary pr-4 py-2 relative flex flex-col items-end">
+<div class="absolute -right-[5px] top-0 w-2 h-2 bg-primary rounded-full"></div>
+<h3 class="text-primary/60 text-[10px] font-mono uppercase tracking-widest mb-1">Sector 02</h3>
+<h2 class="text-3xl font-serif font-medium text-white tracking-wide">Agent Logic</h2>
+</div>
+<div class="bg-background-dark/40 backdrop-blur-sm border border-primary/20 rounded-lg p-5 h-[350px] overflow-hidden relative shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+<div class="absolute top-0 left-0 p-2 opacity-30">
+<span class="material-symbols-outlined text-primary">psychology</span>
+</div>
+<div class="flex flex-col gap-4 font-mono text-xs text-white/70 pt-8 leading-relaxed items-end text-right">
+<div class="flex flex-row-reverse gap-2 border-b border-white/5 pb-2 w-full">
+<span class="text-primary">&lt;</span>
+<span>Loading archetype db...</span>
+</div>
+<div class="flex flex-row-reverse gap-2 border-b border-white/5 pb-2 w-full">
+<span class="text-primary">&lt;</span>
+<span>Forging history: Subject 104</span>
+</div>
+<div class="flex flex-row-reverse gap-2 border-b border-white/5 pb-2 w-full">
+<span class="text-primary">&lt;</span>
+<span>Calibrating empathy...</span>
+</div>
+<div class="flex flex-row-reverse gap-2 border-b border-white/5 pb-2 w-full">
+<span class="text-primary">&lt;</span>
+<span class="text-white/50">Injecting: <span class="italic text-primary/80">Fear of thunder</span></span>
+</div>
+<div class="flex flex-row-reverse gap-2 w-full">
+<span class="text-primary animate-pulse">&lt;&lt;</span>
+<span class="text-primary typing-cursor">Optimizing social graphs...</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 flex gap-1">
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+<div class="w-1 h-1 bg-primary/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="fixed bottom-0 w-full border-t border-primary/10 bg-background-dark/90 backdrop-blur-md py-3 px-6 flex justify-between items-center text-[10px] text-primary/50 font-mono z-40 uppercase tracking-widest">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#F97316]"></div> 
+            Server Online
+        </span>
+<span class="border-l border-primary/20 pl-6">Latency: 12ms</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-[14px] animate-spin-slow">settings</span>
+<span>Awaiting Stabilization...</span>
+</div>
+<div class="flex gap-4">
+<span>Mem: 12GB</span>
+<span class="text-white/40">Build v.9.0.21</span>
+</div>
+</footer>
+
+</body></html>
