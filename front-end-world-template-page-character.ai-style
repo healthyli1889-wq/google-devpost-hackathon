@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forger - World Templates: Unleash Your Creativity</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4F86C6",
+                        "primary-dark": "#7a0bb2",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#1c1022",
+                        "surface-dark": "#2a1b32",
+                        "surface-light": "#FF5F1F",
+                    },
+                    fontFamily: {
+                        "display": ["Times New Roman", "Apple Chancery"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for horizontal scrolling areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+<div class="relative flex min-h-screen flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#3c2249]/50 bg-background-dark/80 backdrop-blur-xl">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between">
+<a href="/worlds" class="flex items-center gap-3 text-white">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined">view_in_ar</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight">Forger</h2>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-white text-sm font-bold leading-normal border-b-2 border-primary py-2" href="/worlds">Discover</a>
+<a class="text-gray-400 hover:text-white text-sm font-medium leading-normal py-2 transition-colors" href="/worlds">My Worlds</a>
+<a class="text-gray-400 hover:text-white text-sm font-medium leading-normal py-2 transition-colors" href="#">Marketplace</a>
+<a class="text-gray-400 hover:text-white text-sm font-medium leading-normal py-2 transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center gap-2 rounded-lg h-9 px-4 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create</span>
+</button>
+<div class="size-9 rounded-full bg-cover bg-center border border-white/20" data-alt="User profile avatar showing a stylized digital face" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKJeREmC83WQYqqLHEyQ0gtWBAaXPx8g0hiekVvlZPq2zIBr8bR3SI3y7UpyHM55E6BBo18NO3SbGC7tIyrsyVXbIYO6kyehDZwy4ikqFZV8g3oZZEotcO0kLDn98-AQkEgpeIYRRbTaPugeoPXqujzUNWSqTeHRgrWfRt4T31WN4aEwXQXLHkvAZ6cSByx-RZmuNy9tV0mOB8EpTXDlTQSZ23XKVIu_97o4W121X7Eae1txqiBTi82ZmlNZtvd5O6ci7qSLJvG6U");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1440px] mx-auto p-4 md:p-8 flex flex-col gap-10">
+<!-- Hero Section -->
+<section class="relative w-full rounded-3xl overflow-hidden min-h-[500px] flex items-end p-6 md:p-12 group">
+<!-- Hero Background -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Futuristic cityscape of Neo-Tokyo with neon lights and tall skyscrapers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtrnOx-K11Ejcls-P8I-Wl5uBhLZ7firutscdylveHpZNedDnUUYthbIGQnHUhQCKfNqbVrdDQ7ySqVTZqw-GAumMhJlNfgnYd0l9TYUHG5kLulKlRB5fyP5TAHwV8jMZnc5CGCcRmZ9n9npElmqP8C2VZApEvLS1Qc6P-65VQhRF33qg8wHccEVC254b1y4wkLbTkGd2AS4Bc-E5IqsdHzjeRj480hURaepjCjDsAXYPHpUYJJ1OyLwXmt03PxeM0heF959mqDik");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/80 via-transparent to-transparent"></div>
+<!-- Hero Content -->
+<div class="relative z-10 flex flex-col gap-6 max-w-2xl animate-fade-in-up">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(166,13,242,0.6)]">Featured Reality</span>
+<span class="flex items-center gap-1 text-green-400 text-xs font-bold bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-green-500/30">
+<span class="relative flex h-2 w-2 mr-1">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+                            2,400+ Active Agents
+                        </span>
+</div>
+<div>
+<h1 class="text-5xl md:text-7xl font-black text-white tracking-tight mb-2 leading-[0.9]">
+                            NEO-TOKYO <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">2099</span>
+</h1>
+<p class="text-gray-300 text-lg md:text-xl font-medium max-w-lg leading-relaxed">
+                            A dense urban sprawl where corporate AI wars against rogue androids. Experience high-complexity simulations with emergent faction behavior.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4 mt-2">
+<a class="flex items-center justify-center gap-2 rounded-xl h-12 px-8 bg-white text-background-dark text-base font-bold hover:bg-gray-100 transition-colors" href="/world/neo-tokyo">
+<span class="material-symbols-outlined">play_arrow</span>
+                            Enter Simulation
+                        </a>
+<a class="flex items-center justify-center gap-2 rounded-xl h-12 px-6 bg-white/10 backdrop-blur-md border border-white/20 text-white text-base font-bold hover:bg-white/20 transition-colors" href="/world/neo-tokyo">
+<span class="material-symbols-outlined">info</span>
+                            View Details
+                        </a>
+</div>
+</div>
+</section>
+<!-- Discovery Toolbar -->
+<section class="sticky top-[72px] z-40 -mx-4 md:-mx-8 px-4 md:px-8 py-4 bg-background-dark/95 backdrop-blur-sm border-b border-white/5 flex flex-col md:flex-row gap-4 justify-between items-center">
+<!-- Search -->
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-dark border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all text-sm" placeholder="Search worlds, genres, or vibes..." type="text"/>
+</div>
+<!-- Chips Filter -->
+<div class="w-full md:w-auto overflow-x-auto no-scrollbar">
+<div class="flex gap-2">
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-white text-background-dark text-sm font-bold shadow-lg shadow-white/10">
+                            All Worlds
+                        </button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-surface-dark border border-white/10 hover:border-primary/50 text-gray-300 hover:text-white transition-all text-sm font-medium">
+                            Cyberpunk
+                        </button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-surface-dark border border-white/10 hover:border-primary/50 text-gray-300 hover:text-white transition-all text-sm font-medium">
+                            Victorian
+                        </button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-surface-dark border border-white/10 hover:border-primary/50 text-gray-300 hover:text-white transition-all text-sm font-medium">
+                            High Fantasy
+                        </button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-surface-dark border border-white/10 hover:border-primary/50 text-gray-300 hover:text-white transition-all text-sm font-medium">
+                            Post-Apocalyptic
+                        </button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-lg bg-surface-dark border border-white/10 hover:border-primary/50 text-gray-300 hover:text-white transition-all text-sm font-medium">
+                            Sci-Fi
+                        </button>
+</div>
+</div>
+</section>
+<!-- Trending Section -->
+<section class="flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+                        Trending Realities
+                    </h2>
+<a class="text-sm font-medium text-primary hover:text-primary-dark transition-colors flex items-center gap-1" href="#">
+                        View all <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<a href="/world/velvet-manor" class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-dark cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(166,13,242,0.25)] block">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Dark Victorian mansion interior with mysterious fog" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvFOkjXY1q5BEMRfG81wROxfynpxwFovwdhBdC102KAFJ_tK65Cy9iqiVi2fsV9FEuqvHUCuRB7XPWETsKOFfOGDKEg3hd1aSbvXOOm8YrKSQeoyuGKdTdcw0cWEHhN6Xu1eBYWze28RFyjMLdfoG5OAqgY8OvZBlhIpd3Pj_DyASCN5sloWvGDmMe0357Ipp9gdlZwDE2HQDOjECZ6CAuCV8Fvwvumd6qLgU2iUk4bn216yr_GXAmXWK5xfPPpxPXD8bc0tkfqt4");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent opacity-90"></div>
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-black/50 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Mystery</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-3 z-10">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Velvet Manor</h3>
+<p class="text-gray-400 text-xs line-clamp-2">A murder mystery where every NPC has a secret agenda.</p>
+</div>
+<div class="flex items-center justify-between border-t border-white/10 pt-3">
+<div class="flex items-center gap-1.5 text-gray-300">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="text-xs font-medium">12 Agents</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+<span class="text-xs font-medium">Intense</span>
+</div>
+</div>
+<span class="w-full py-2 mt-1 rounded-lg bg-primary text-white text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 inline-flex items-center justify-center">
+                                Quick Preview
+                            </span>
+</div>
+</a>
+<!-- Card 2 -->
+<a href="/world/sector-7" class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-dark cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(166,13,242,0.25)] block">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Neon lit alleyway in a cyberpunk city" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvn8R8U726y6C-r_CbPpTcO8Vbptg5AmdKQajkuJSUvuU8d0aLy-Y-v1_RUDO9W3-UFi9x215CV6TLwi05nGUWIlxKhkAe44PnmCmAa7gALwMxxRtovoHX6Nrmky3smbafF5WKCpUoeCnfEgH1gUgqvqGMZEk-OoCLWwlHX7aM0jsTkUPwHOmiqAHZDIgL86zHpdFqdJe2mdxXDF3MD3tM6bRhsXUVtY9JClDYDcFwzGqCZoyQ0jDaDZOBFxPI75eruP9g40pvkr0");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent opacity-90"></div>
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-black/50 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Cyberpunk</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-3 z-10">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Sector 7 Slums</h3>
+<p class="text-gray-400 text-xs line-clamp-2">Survive the low-life, high-tech underworld economy.</p>
+</div>
+<div class="flex items-center justify-between border-t border-white/10 pt-3">
+<div class="flex items-center gap-1.5 text-gray-300">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="text-xs font-medium">850 Agents</span>
+</div>
+<div class="flex items-center gap-1.5 text-orange-400">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="text-xs font-medium">Volatile</span>
+</div>
+</div>
+<span class="w-full py-2 mt-1 rounded-lg bg-primary text-white text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 inline-flex items-center justify-center">
+                                Quick Preview
+                            </span>
+</div>
+</a>
+<!-- Card 3 -->
+<a href="/world/eldoria" class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-dark cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(166,13,242,0.25)] block">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Magical forest landscape with glowing trees" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCb3R1L0_KZjpHi-FU1qZSsLz_Gmi7UiElDXLf1K32j4cOm_QI5-E-Zw0f2kFYNauuzbIYOsVgl-Wb2qKwSPptEpJC8zmm8zakDF063krqpbeT_-6am6m4ntTiMc8uzoVrjS8y4eIEO0iyuYGx2tG2_lBmDEcSKCYqorr_vZ1SrAnWb_THHaFncq8ZAdGEm2WZo2c32gjaF1mNyHAV3DlbUf9yGded2EMTWMB6BSjXwF2xCdEKblOM09m9q91Tq3nTMC9M_a_7dCCs");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent opacity-90"></div>
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-black/50 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Fantasy</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-3 z-10">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Eldoria</h3>
+<p class="text-gray-400 text-xs line-clamp-2">High fantasy realm with dynamic magical ecosystems.</p>
+</div>
+<div class="flex items-center justify-between border-t border-white/10 pt-3">
+<div class="flex items-center gap-1.5 text-gray-300">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="text-xs font-medium">320 Agents</span>
+</div>
+<div class="flex items-center gap-1.5 text-blue-400">
+<span class="material-symbols-outlined text-[16px]">spa</span>
+<span class="text-xs font-medium">Peaceful</span>
+</div>
+</div>
+<span class="w-full py-2 mt-1 rounded-lg bg-primary text-white text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 inline-flex items-center justify-center">
+                                Quick Preview
+                            </span>
+</div>
+</a>
+<!-- Card 4 -->
+<a href="/world/dust-rust" class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-dark cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(166,13,242,0.25)] block">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Desolate desert wasteland with scrap metal structures" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2UFtN3vcB-4qzli5q46goIogyePAtYid_8CEqzzk6jP4u5sx7vqvoFym007FtWm26kaK1WqVZzK9KoSp1o6Gn4J4gvqjxQPI7OhIKRFHMlUq8Xn0U5HyIV45NMUJfVfSSHMCnH1wi9W0KPa11AmHrqVgdOvhQSyBGTQ0K5b7XXOGbLP0uyvg4tIiDvCi45LHryZbSrNHML2b2oqX9tHzSqr1jjDbe0WSNQgPAm6GohHeB-Pu8CHlUIsfr46E44nKbFcDTOaXbz84");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/80 to-transparent opacity-90"></div>
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-black/50 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Post-Apoc</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-3 z-10">
+<div>
+<h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">Dust &amp; Rust</h3>
+<p class="text-gray-400 text-xs line-clamp-2">Resource scarcity simulation with raider factions.</p>
+</div>
+<div class="flex items-center justify-between border-t border-white/10 pt-3">
+<div class="flex items-center gap-1.5 text-gray-300">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="text-xs font-medium">105 Agents</span>
+</div>
+<div class="flex items-center gap-1.5 text-red-500">
+<span class="material-symbols-outlined text-[16px]">dangerous</span>
+<span class="text-xs font-medium">Hostile</span>
+</div>
+</div>
+<span class="w-full py-2 mt-1 rounded-lg bg-primary text-white text-xs font-bold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 inline-flex items-center justify-center">
+                                Quick Preview
+                            </span>
+</div>
+</a>
+</div>
+</section>
+<!-- New Arrivals Section (Secondary List) -->
+<section class="flex flex-col gap-6 pb-20">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400">new_releases</span>
+                        New Arrivals
+                    </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Horizontal Card 1 -->
+<a href="/world/orbital-z" class="group flex bg-surface-dark rounded-xl overflow-hidden hover:bg-[#32203c] transition-colors border border-transparent hover:border-primary/30">
+<div class="w-32 bg-cover bg-center shrink-0" data-alt="Space station corridor interior" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAw5EK80Sd7hslor7YA1Gw908ORO6IUWsiEfTbU8prR4kBAlngkasT4k7FnMA9g4yhsg1rJfaadnpxXL0lYKVUL1oqgi5UNWt0gY8l6ujCKqb3nnnOTj-j3024-kGO36FecfXYBUwbmyirC4KnMFZK3VhXIqfTeaH1gBW_SnQqvwgH-U_q7DFFt3JzOa0kKROCxxkzwPnP20m-ybDaOON2xAbeoA0uXEvCR6gkVhXTYOGt095jpIAVG4YD9YxvoWT1ZcrDXFzmUnRs");'></div>
+<div class="p-4 flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-blue-300 uppercase">Sci-Fi</span>
+<span class="material-symbols-outlined text-gray-500 text-[16px]">bookmark_add</span>
+</div>
+<h3 class="text-lg font-bold text-white mt-1">Orbital Station Z</h3>
+<p class="text-xs text-gray-400 mt-1 line-clamp-2">Zero-G simulation environment.</p>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">person</span> 45</span>
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span> 4.8</span>
+</div>
+</div>
+</a>
+<!-- Horizontal Card 2 -->
+<a href="/world/abyss-colony" class="group flex bg-surface-dark rounded-xl overflow-hidden hover:bg-[#32203c] transition-colors border border-transparent hover:border-primary/30">
+<div class="w-32 bg-cover bg-center shrink-0" data-alt="Underwater coral reef city concept" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKiBbd_B1cW-2fJGyU-boM8pepSAO62VSYj9Cs-WNfoQGuSBC_Z0ZBN1o0pbAOxp93-yuQUcUqe5rDP5OYnaqfVDj8_lbWVZfTYL1evUU8zj211vu5ST7ywYec6t4Od5gwgMckAazH-roonLydbf4Mmvd8W0YXmi-XI5-W-FUb0E6r8DGfTo3K2nEeunBiKuIz5fAm8GaqTPNQzMPzycm0Kq-pggl_Hz0g8-qTumJHIGlnxbR2XNoKRnoh-QBT3cTT3XMjiUF1Jzo");'></div>
+<div class="p-4 flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-cyan-300 uppercase">Aquatic</span>
+<span class="material-symbols-outlined text-gray-500 text-[16px]">bookmark_add</span>
+</div>
+<h3 class="text-lg font-bold text-white mt-1">Abyss colony</h3>
+<p class="text-xs text-gray-400 mt-1 line-clamp-2">Deep sea pressure and society sim.</p>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">person</span> 210</span>
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span> 4.2</span>
+</div>
+</div>
+</a>
+<!-- Horizontal Card 3 -->
+<a href="/world/the-archives" class="group flex bg-surface-dark rounded-xl overflow-hidden hover:bg-[#32203c] transition-colors border border-transparent hover:border-primary/30">
+<div class="w-32 bg-cover bg-center shrink-0" data-alt="Medieval library full of old books" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcSpO2OTac8MZ8Qv_7xcXgv0RxrjIQR8uJ8V78NBsyxRDh-PjEDCHhG2WA-NLk2KT_SdQrwJ5LqkmIsdcEaKaTa4LwTeYQlr8B6H6iteFrLpM9dUiD5zApv5eqCd7k__7wU_tHU971z9HgptgCnWMfiyVyRWCx4XReLmJaG2l1vHBmoAdxbnjo0v_nL9ssJ4bVOexCTNjgyT5VLqsdK3L97Ez-PvqDqv45nAzXBPbsLvotAfghsAc8eqNoAVAfYhBGcQQe_iMcp4Q");'></div>
+<div class="p-4 flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-amber-300 uppercase">Academic</span>
+<span class="material-symbols-outlined text-gray-500 text-[16px]">bookmark_add</span>
+</div>
+<h3 class="text-lg font-bold text-white mt-1">The Archives</h3>
+<p class="text-xs text-gray-400 mt-1 line-clamp-2">Infinite knowledge retrieval agents.</p>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">person</span> 1,200</span>
+<span class="text-xs font-medium text-gray-400 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">star</span> 4.9</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+</main>
+</div>
+</body></html>
